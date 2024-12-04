@@ -1,15 +1,18 @@
-# 使用轻量级的基础镜像
+# 使用 Alpine 作为基础镜像
 FROM alpine:latest
 
 # 设置工作目录
 WORKDIR /app
 
-# 复制 frps 可执行文件和配置文件到容器中
+# 复制可执行文件和配置文件到容器
 COPY frps /app/frps
 COPY frps.ini /app/frps.ini
 
-# 暴露 frp 服务端和管理面板的端口
+# 赋予执行权限
+RUN chmod +x /app/frps
+
+# 暴露必要的端口（根据 frps.ini 的配置）
 EXPOSE 7000 7500
 
-# 指定容器启动时的命令
-CMD ["./frps", "-c", "/app/frps.ini"]
+# 启动命令
+CMD ["/app/frps", "-c", "/app/frps.ini"]
