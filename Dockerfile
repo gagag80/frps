@@ -12,4 +12,4 @@ COPY frps.ini /app/frps.ini
 EXPOSE 7000 7500
 
 # 指定容器启动时的命令
-CMD ["./frps", "-c", "./frps.ini"]
+CMD ["./frps", "-c", "/app/frps.ini"]
