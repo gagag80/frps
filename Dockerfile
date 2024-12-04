@@ -12,7 +12,7 @@ COPY frps.ini /app/frps.ini
 RUN chmod +x /app/frps
 
 # 暴露必要的端口（根据 frps.ini 的配置）
-EXPOSE 7000 80
+EXPOSE 80
 
 # 启动命令
 CMD ["/app/frps", "-c", "/app/frps.ini"]
