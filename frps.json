@@ -1,0 +1,9 @@
+{
+  "common": {
+    "bind_port": "${PORT}",
+    "dashboard_addr": "0.0.0.0",
+    "dashboard_port": "${PORT}",
+    "dashboard_user": "admin",
+    "dashboard_pwd": "password"
+  }
+}
