@@ -14,4 +14,4 @@ RUN chmod +x /app/frps
 RUN apk add --no-cache libc6-compat openssl
 
 # 启动时动态生成配置文件并启动服务
-CMD sh -c "echo -e '{\n  \"common\": {\n    \"bind_port\": \"${PORT}\",\n    \"dashboard_addr\": \"0.0.0.0\",\n    \"dashboard_port\": \"${PORT}\",\n    \"dashboard_user\": \"admin\",\n    \"dashboard_pwd\": \"password\"\n  }\n}' > /app/frps.json && /app/frps -c /app/frps.json --config_format=json"
+CMD sh -c "echo -e '[common]\nbind_port = ${PORT}\ndashboard_addr = 0.0.0.0\ndashboard_port = ${PORT}\ndashboard_user = admin\ndashboard_pwd = password' > /app/frps.ini && /app/frps -c /app/frps.ini"
